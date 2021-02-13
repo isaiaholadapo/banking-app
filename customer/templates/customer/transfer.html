@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{{user }}
+
+{{account_number}}
+<form action="" method="post">
+    {% csrf_token %}
+    
+    {{ form }}
+
+    <button type="submit" class="btn btn-primary">Transfer amount</button>
+</form>
+
+
+
+{% endblock content %}

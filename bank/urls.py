@@ -22,6 +22,10 @@ from account.views import (
     logout_view,
     register_view,
 )
+from customer.views import (
+    money_transfer,
+    index,
+)
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -29,4 +33,6 @@ urlpatterns = [
     path('login/', login_view, name = 'login'),
     path('logout/', logout_view, name = 'logout'),
     path('register/', register_view, name = 'register'),
+    path('transfer/', money_transfer, name = 'transfer'),
+    path('u-account/', index, name = 'user_account'),
 ]
