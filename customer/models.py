@@ -23,3 +23,8 @@ class Deposit(models.Model):
     amount                  = models.IntegerField()
     dep_account             = models.IntegerField(default = 0)
     dep_user_name           = models.CharField(max_length =  50, default = None)
+
+class Withdraw(models.Model):
+    amount                  = models.IntegerField()
+    with_account            = models.IntegerField()
+    with_username           = models.CharField(max_length = 50, default = None)

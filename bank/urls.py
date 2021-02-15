@@ -27,6 +27,7 @@ from customer.views import (
     money_transfer,
     index,
     deposit_view,
+    withdraw_view,
 )
 
 urlpatterns = [
@@ -38,4 +39,5 @@ urlpatterns = [
     path('transfer/', money_transfer, name = 'transfer'),
     path('u-account/', index, name = 'user_account'),
     path('deposit/', deposit_view, name = 'deposit'),
+    path('withdraw/', withdraw_view, name = 'withdraw'),
 ]

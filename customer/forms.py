@@ -15,3 +15,8 @@ class DepositForm(forms.ModelForm):
     class Meta:
         model = models.Deposit
         fields = ['amount', 'dep_user_name', 'dep_account']
+
+class WithdrawForm(forms.ModelForm):
+    class Meta:
+        model = models.Withdraw
+        fields = ['amount', 'with_account', 'with_username']

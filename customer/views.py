@@ -53,6 +53,35 @@ def deposit_view(request):
         return redirect('login')
     return render(request, 'customer/deposit.html', {"form": form})
 
+def withdraw_view(request):
+    user = request.user
+    if user.is_authenticated:
+        if request.method == "POST":
+            form = forms.WithdrawForm(request.POST)
+            if form.is_valid():
+                form.save()
+                acti_user = models.Withdraw.objects.get(with_username = request.user)
+                depositor_account_number = acti_user.with_account
+                temp = acti_user
+                
+                act_user = models.Status.objects.get(account_number = depositor_account_number)
+                act_user_amout = acti_user.amount
+                acti_user = models.Status.objects.get(user_name = request.user)
+                
+
+                acti_user.balance =  acti_user.balance - act_user_amout
+
+                acti_user.save()
+                temp.delete()
+               
+                return redirect('user_account')
+
+        else:
+            form = forms.WithdrawForm()
+    else:
+        return redirect('login')
+    return render(request, 'customer/withdraw.html', {"form": form})
+
 def money_transfer(request):
     user = request.user
     if user.is_authenticated:
