@@ -5,8 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Easy Bank</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
@@ -23,7 +23,9 @@
             
             {% if request.user.is_authenticated %}
             <p><a class="p-2 text-dark" href="{% url 'home' %}">Home</a>
-               <a class="p-2 text-dark" href="#">Account</a>
+               <a class="p-2 text-dark" href="{% url 'user_account' %}">Account</a>
+               <a class="p-2 text-dark" href="{% url 'deposit' %}">Deposit</a>
+               <a class="p-2 text-dark" href="{% url 'transfer' %}">Transfer</a>
             <a class="p-2 text-dark" href="{% url 'logout' %}">Logout</a>
             </p>
             {% else %}

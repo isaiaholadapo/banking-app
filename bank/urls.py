@@ -21,10 +21,12 @@ from account.views import (
     login_view,
     logout_view,
     register_view,
+    
 )
 from customer.views import (
     money_transfer,
     index,
+    deposit_view,
 )
 
 urlpatterns = [
@@ -35,4 +37,5 @@ urlpatterns = [
     path('register/', register_view, name = 'register'),
     path('transfer/', money_transfer, name = 'transfer'),
     path('u-account/', index, name = 'user_account'),
+    path('deposit/', deposit_view, name = 'deposit'),
 ]

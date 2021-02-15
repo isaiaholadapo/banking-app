@@ -1,45 +1,62 @@
 {% extends 'base.html' %}
 {% block content %}
-<div class="container">
-    <h4>Register</h4>
-    <form action="" method="post">
-        <section class="form-control">
-            {% csrf_token %}
-        {{form}}
-        </section>
-        <br>
-        <section>
-            <input type="checkbox" required> 
-            <small>By clicking "Create account" you agree to our  
-                <a href="#">Terms and Conditions</a>.</small>
-        </section>
-        
-        <br>
-        
-        <input type="submit" class="form-control btn btn-primary" value="Create account" name="submit"
-        />
-    </form>
-</div>
 
-<script>
-    $(".active").removeClass("active");
-    $("#nav-create").addClass("active");
+<style>
+    
+    .form-signin {
+      width: 100%;
+      max-width: 330px;
+      padding: 15px;
+      margin: 0 auto;
+    }
+    .form-signin .checkbox {
+      font-weight: 400;
+    }
+    .form-signin .form-control {
+      position: relative;
+      box-sizing: border-box;
+      height: auto;
+      padding: 10px;
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
+    .form-signin .form-control:focus {
+      z-index: 2;
+    }
+    .form-signin input[type="email"] {
+      margin-bottom: 10px;
+      border-bottom-right-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+    .form-signin input[type="password"] {
+      margin-bottom: 10px;
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
+    }
+    
+    </style>
+    <div class="container">
+        <div class="text-center">
+            <form class="form-signin" method="POST">
+                {% csrf_token %}
+                <img class="mb-4" src="https://getbootstrap.com/assets/brand/bootstrap-solid.svg" alt="" width="72"
+                    height="72">
+                <h1 class="h3 mb-3 font-weight-normal">Please Register</h1>
+                <label for="inputUsername" class="sr-only">Username</label>
+                <input type="text" id="inputUsername" class="form-control" name="username" placeholder="Username" required
+                    autofocus>
+                <label for="inputPassword" class="sr-only">Password</label>
+                <input type="password" id="inputPassword" name="password1" class="form-control" placeholder="Password"
+                    required>
+                    <label for="inputPassword" class="sr-only">Confirm Password</label>
+                    <input type="password" id="inputPassword" name="password2" class="form-control" placeholder="Password"
+                        required>
+               
+                <button class="btn btn-lg btn-primary btn-block" type="submit">Register</button>
+                <p class="mt-5 mb-3 text-muted">&copy; 2017-2018</p>
+            </form>
+        </div>
+    </div>
 
-    $(".helptext").html("");
-
-    var input_text = $("input[type=text]");
-    input_text.addClass("form-control");
-
-    var input_pass = $("input[type=password]");
-    input_pass.addClass("form-control");
-
-    $("form ul li").addClass("btn btn-danger");
-
-    // var labels = $("label");
-
-    // labels.addClass("col");
-    // input_text.addClass("col")
-    // input_pass.addClass("col");
-</script>
 
 {% endblock content %}
