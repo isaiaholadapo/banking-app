@@ -16,11 +16,17 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 from django.urls import path
+from django.conf import settings
+from django.conf.urls.static import static
+
 from account.views import (
     home_screen_view,
     login_view,
     logout_view,
     register_view,
+    about_view,
+    service_view,
+    contact_view,
     
 )
 from customer.views import (
@@ -28,11 +34,15 @@ from customer.views import (
     index,
     deposit_view,
     withdraw_view,
+    
 )
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     path('', home_screen_view, name = 'home'),
+    path('about/', about_view, name = 'about'),
+    path('service/', service_view, name = 'service'),
+    path('contact/', contact_view, name = 'contact'),
     path('login/', login_view, name = 'login'),
     path('logout/', logout_view, name = 'logout'),
     path('register/', register_view, name = 'register'),
@@ -41,3 +51,6 @@ urlpatterns = [
     path('deposit/', deposit_view, name = 'deposit'),
     path('withdraw/', withdraw_view, name = 'withdraw'),
 ]
+
+urlpatterns += static(settings.STATIC_URL, document_root = settings.STATIC_ROOT)
+urlpatterns += static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)

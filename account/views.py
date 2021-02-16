@@ -5,7 +5,7 @@ from django.contrib.auth import login, logout, authenticate
 # Create your views here.
 
 def home_screen_view(request):
-    return render(request, 'base.html', {})
+    return render(request, 'account/home.html', {})
 
 def register_view(request):
     user = request.user
@@ -22,8 +22,20 @@ def register_view(request):
     return render(request, 'account/register.html', {'form': form})
 
 def home_view(request):
-
+    
     return render(request, 'account/home.html', {})
+
+def about_view(request):
+    
+    return render(request, 'account/about.html', {})
+
+def service_view(request):
+    
+    return render(request, 'account/services.html', {})
+
+def contact_view(request):
+
+    return render(request, 'account/contact.html', {})
 
 def login_view(request):
     user = request.user
