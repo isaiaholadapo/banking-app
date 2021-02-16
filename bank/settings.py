@@ -25,7 +25,7 @@ SECRET_KEY = '@66!=k7c@-b&#@3@$^3f2s8+s1g7pe4kd$b!)^$-r9$dw_2vxi'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['https://djbank.herokuapp.com/']
+ALLOWED_HOSTS = ['djbank.herokuapp.com']
 
 
 # Application definition
