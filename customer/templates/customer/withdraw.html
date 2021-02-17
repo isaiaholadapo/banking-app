@@ -2,6 +2,16 @@
 
 {% block content %}
 <style>
+
+body {
+    background-color: #281459;
+    color: #fff;
+  }
+
+  .h3 {
+    margin-top: 3em;
+    color: #fff;
+  }
     
     .form-signin {
       width: 100%;
@@ -39,7 +49,7 @@
         <div class="text-center">
             <form class="form-signin" method="POST">
                 {% csrf_token %}
-                <h1 class="h3 mb-3 font-weight-normal">Deposit Money</h1>
+                <h1 class="h3 mb-3 font-weight-normal">Withraw Money</h1>
                 <label for="inputAccount" class="sr-only">Account Number</label>
                  
                 <label for="inputUsernmae" class="sr-only">Type your username</label>
@@ -51,7 +61,7 @@
                 <label for="inputAmount" class="sr-only">Account Number</label>
                 <input type="number" id="inputAmount" name="with_account" class="form-control" placeholder="Account Number"
                         required>
-                <button class="btn btn-lg btn-primary btn-block" type="submit">Transfer</button>
+                <button class="btn btn-lg btn-primary btn-block mb-3" type="submit">Withdraw</button>
                 
             </form>
         </div>

@@ -2,6 +2,9 @@
 {% block content %}
 
 <style>
+    body {
+      background-color: #281459;
+    }
     
     .form-signin {
       width: 100%;
@@ -33,14 +36,18 @@
       border-top-left-radius: 0;
       border-top-right-radius: 0;
     }
+
+    .h3 {
+      color: #fff;
+    }
     
     </style>
-    <div class="container">
+    <br><br><br>
+    <div class="container ">
         <div class="text-center">
             <form class="form-signin" method="POST">
                 {% csrf_token %}
-                <img class="mb-4" src="https://getbootstrap.com/assets/brand/bootstrap-solid.svg" alt="" width="72"
-                    height="72">
+                
                 <h1 class="h3 mb-3 font-weight-normal">Please Register</h1>
                 <label for="inputUsername" class="sr-only">Username</label>
                 <input type="text" id="inputUsername" class="form-control" name="username" placeholder="Username" required
@@ -53,7 +60,7 @@
                         required>
                
                 <button class="btn btn-lg btn-primary btn-block" type="submit">Register</button>
-                <p class="mt-5 mb-3 text-muted">&copy; 2017-2018</p>
+                <br>
             </form>
         </div>
     </div>
