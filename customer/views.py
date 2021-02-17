@@ -14,14 +14,18 @@ def randomNum():
     return int(random.uniform(1000000000, 9999999999))
 
 def index(request):
-    try:
-        acttive_user = Status.objects.get(user_name = request.user)
-    except:
-        acttive_user = Status()
-        acttive_user.account_number = randomNum()
-        acttive_user.balance = 0
-        acttive_user.user_name = request.user
-        acttive_user.save()
+    user = request.user
+    if user.is_authenticated:
+        try:
+            acttive_user = Status.objects.get(user_name = request.user)
+        except:
+            acttive_user = Status()
+            acttive_user.account_number = randomNum()
+            acttive_user.balance = 0
+            acttive_user.user_name = request.user
+            acttive_user.save()
+    else:
+        return redirect('login')
     return render(request, 'customer/home.html', {"active_user": acttive_user})
 
 def deposit_view(request):
