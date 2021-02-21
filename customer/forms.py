@@ -1,5 +1,6 @@
 from django import forms
 from . import models
+from django.contrib.auth import authenticate
 
 class CustomerDetailsForm(forms.ModelForm):
     class Meta:
@@ -10,6 +11,8 @@ class TransferForm(forms.ModelForm):
     class Meta:
         model = models.Transfer
         fields = ['enter_username', 'receiver_account_number', 'amount']
+    
+        
 
 class DepositForm(forms.ModelForm):
     class Meta:

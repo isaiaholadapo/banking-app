@@ -64,7 +64,7 @@ def withdraw_view(request):
             form = forms.WithdrawForm(request.POST)
             if form.is_valid():
                 form.save()
-                acti_user = models.Withdraw.objects.get(with_username = request.user)
+                acti_user = models.Withdraw.objects.filter( with_username = request.user).first()
                 depositor_account_number = acti_user.with_account
                 temp = acti_user
                 
@@ -72,13 +72,19 @@ def withdraw_view(request):
                 act_user_amout = acti_user.amount
                 acti_user = models.Status.objects.get(user_name = request.user)
                 
-
-                acti_user.balance =  acti_user.balance - act_user_amout
-
-                acti_user.save()
-                temp.delete()
-               
-                return redirect('user_account')
+                ubal = acti_user.balance
+                if ubal > act_user_amout:
+                    acti_user.balance =  acti_user.balance - act_user_amout
+                    acti_user.save()
+                    #temp.delete()
+                    #form.save()
+                    messages.success(request, 'Account debited successfully')
+                    
+                else:
+                    temp.delete()
+                    messages.error(request, "You enough Money.")
+                   
+                return redirect('withdraw')
 
         else:
             form = forms.WithdrawForm()

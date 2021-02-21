@@ -50,6 +50,7 @@ urlpatterns = [
     path('u-account/', index, name = 'user_account'),
     path('deposit/', deposit_view, name = 'deposit'),
     path('withdraw/', withdraw_view, name = 'withdraw'),
+
 ]
 
 urlpatterns += static(settings.STATIC_URL, document_root = settings.STATIC_ROOT)
